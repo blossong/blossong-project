@@ -215,12 +215,128 @@
 # else:  #나머지 모든 경우
 #     print("준비물이 필요 없어요.")
 
-temp = int(input("기온은 어때요?"))  # 기온은 숫자이므로 int함수 사용하여 변환
-if 30 <= temp :
-    print("너무 더워요")
-elif 10 <= temp and temp <30 :
-    print("괜찮은 날씨에요")
-elif 0 <= temp <10:
-    print("외투를 챙기세요")
-else :
-    print("너무 추워요. 나가지 마세요")
+# temp = int(input("기온은 어때요?"))  # 기온은 숫자이므로 int함수 사용하여 변환
+# if 30 <= temp :
+#     print("너무 더워요")
+# elif 10 <= temp and temp <30 :
+#     print("괜찮은 날씨에요")
+# elif 0 <= temp <10:
+#     print("외투를 챙기세요")
+# else :
+#     print("너무 추워요. 나가지 마세요")
+
+# # 반복문
+# print("대기번호 : 1")
+# print("대기번호 : 2")
+# print("대기번호 : 3")
+# print("대기번호 : 4")
+# #여러 번 찍을 때 필요한 게 For 문
+
+# for waiting_no in [0,1,2,3,4] :
+#     print("대기번호 : {0}".format(waiting_no)) # 차례대로 들어가고 for문 끝남
+# for waiting_no in range(5) : #0,1,2,3,4
+#     print("대기번호 : {0}".format(waiting_no))
+# for waiting_no in range(1,6) : #1,2,3,4,5
+#     print("대기번호 : {0}".format(waiting_no))
+
+# starbucks = ["아이언맨", "토르", "아이엠 그루트"]
+# for customer in starbucks:
+#     print("{0}, 커피가 준비되었습니다.".format(customer))
+
+
+# # while 문
+# # rule: 5번 손님 불렀는데 나타나지 않으면 버리는 정책
+# customer = "토르"
+# index = 5
+# while index >=1:
+#     print("{0}, 커피가 준비되었습니다. {1}번 남았어요".format(customer, index))
+#     index -= 1 # index = index-1
+#     if index == 0 :
+#         print("커피는 폐기처분되었습니다")
+#     # index = 0 이 되면서 while문 빠져나옴
+
+# # 손님이 올 때까지 계속 호출한다면,
+# customer = "아이언맨"
+# index = 1
+# while True :
+#     print("{0}, 커피가 준비되었습니다. 호출 {1} 회".format(customer, index))
+#     index +=1  ##무한루프 발생함. terminal에서 Ctrl +C  눌러서 강제종료
+
+# 손님이 찾아와서 물어서
+# customer = "토르"   # 음료가 준비된 사람
+# person = "Unknown"  # 찾아온 사람, while문에 들어갈 변수들은 일단 정의해야함. 임의 지정 가능
+
+# while person != customer :  # 찾아온 사람이 customer과 일치하지 않으면 while 문 실행
+#     print ("{0}, 커피가 준비되었습니다".format(customer))
+#     person = input("이름이 어떻게 되세요?")
+
+# # while~print 작성 후, 뒤에 아무런 조건이 없으면 while문 무한 루프. 꼭 빠져나오는 조건 붙이기
+
+# # >>continue와 break
+# absent = [2,5]
+# no_book = [7]
+# for student in range(1,11): 
+#     if student in absent:
+#         continue        # continue : student 가 absent 에 있으면 실행하지 않고 다음 진행
+#     elif student in no_book:
+#         print("오늘 수업은 여기까지. {0}는 교무실로 따라와".format(student))
+#         break       # break는 더이상 진행하지 않고 while문을 끝냄
+#     print("{0}. 책을 읽어봐".format(student))
+
+# # >> 한줄 For
+# # 출석번호 1,2,3,4 -> 앞에 100을 붙이기로 함 -> 101,102,103...
+# students = [1,2,3,4,5]
+# students = [i+100 for i in students]
+# print(students)
+
+# # 학생 이름을 문자길이로 변환
+# students = ["Iron man", "Thor", "I am groot"]
+# students = [len(i) for i  in students]
+# print(students)
+
+# # 학생 이름을 대문자로 변환
+# students = ["Iron man", "Thor", "I am groot"]
+# students = [i.upper() for i in students]    # upper() 로 써야함!
+# print(students)
+
+# # 퀴즈 5
+# 당신은 택시기사. 50명의 승객과 매칭 기회가 있을 떄, 총 탑승승객 수를 구하는 프로그램을 작성하시오.
+
+# 조건1 : 승객별 운행 소요 시간은 5분~ 50분 사이의 난수(random)로 정해진다.
+# 조건2 : 당신은 소요시간 5분 ~ 15분의 승객만 매칭해야 한다.
+
+# (출력문 예제)
+# [O] 1번째 손님 (소요시간 : 15분)
+# [ ] 2번째 손님 (소요시간 : 50분)
+# [O] 3번째 손님 (소요시간 : 10분)
+# [ ] 4번째 손님 (소요시간 : 17분)
+# ...
+# [O] 50번째 손님 (소요시간 : 13분)
+
+# 총 탑승 승객 : 3 분
+
+from random import *
+customer = 0
+time = range(5,51)
+working_time = "unknown"
+
+while customer <51:
+    print("[{0}] {1}번째 손님(소요시간 : {2}분)".format("O", customer, working_time))
+    customer += 1
+    working_time = sample(time,1)
+    # if int(working_time) < 5 :
+    #     print("[{0}] {1}번째 손님(소요시간 : {2}분".format(" ", customer, working_time))
+
+
+# # 풀이
+# from random import *
+# cnt = 0 
+# for i in range(1,51):
+#     time  = randrange(5,51)
+#     if 5 <= time <= 15:
+#         print("[O] {0}번째 손님(소요시간 : {1}분)".format(i,time))
+#         cnt+=1
+#     else:
+#         print("[ ] {0}번째 손님(소요시간 : {1}분)".format(i,time))
+
+# print("총 탑승 승객 : {} 분".format(cnt))
