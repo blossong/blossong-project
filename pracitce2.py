@@ -184,19 +184,43 @@
 # print(id)
 # print(sample(id,2)) # list에서 무작위로 2개 뽑음
 
-# [solution]
-from random import *
-users = range(1,21)  # 1부터 20까지 숫자 생성
-# print(type(users)) # type이 range로 출력됨
-users = list(users) # type을 list로 변경
-# print(type(users))
+# # [solution]
+# from random import *
+# users = range(1,21)  # 1부터 20까지 숫자 생성
+# # print(type(users)) # type이 range로 출력됨
+# users = list(users) # type을 list로 변경
+# # print(type(users))
 
-# 중복없이 4명을 뽑는다.
-# 뽑기 전에 shuffle
-shuffle(users)
-winners = sample(users,4)
+# # 중복없이 4명을 뽑는다.
+# # 뽑기 전에 shuffle
+# shuffle(users)
+# winners = sample(users,4)
 
-print("-- 당첨자 발표 --")
-print("치킨 당첨자 : {0}".format(winners[0]))
-print("커피 당첨자 : {0}".format(winners[1:]))
-print("-- 축하합니다--")
+# print("-- 당첨자 발표 --")
+# print("치킨 당첨자 : {0}".format(winners[0]))
+# print("커피 당첨자 : {0}".format(winners[1:]))
+# print("-- 축하합니다--")
+
+# # >>>if문(분기?)
+
+# #weather = "맑음"
+# weather = input("오늘 날씨는 어때요?")  
+#  # input은 사용자가 입력하는 곳
+#  # terminal에 물음표 다음에 cursor가 답을 기다리고 있음
+#  # cursor 위치에 비, 미세먼지 등을 입력하면 아래의 조건문에 따라 출력됨
+# if weather == "비" or weather == "눈":
+#     print("우산을 챙기세요")
+# elif weather == "미세먼지":
+#     print("마스크를 챙기세요")
+# else:  #나머지 모든 경우
+#     print("준비물이 필요 없어요.")
+
+temp = int(input("기온은 어때요?"))  # 기온은 숫자이므로 int함수 사용하여 변환
+if 30 <= temp :
+    print("너무 더워요")
+elif 10 <= temp and temp <30 :
+    print("괜찮은 날씨에요")
+elif 0 <= temp <10:
+    print("외투를 챙기세요")
+else :
+    print("너무 추워요. 나가지 마세요")
