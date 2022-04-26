@@ -1,0 +1,63 @@
+# # 표준 입출력
+# print("python", "Java", sep =",")     # separation이 콤마로 됨
+# print("python", "Java", sep =",", end ="?")   # 문장의 끝부분이 (줄바꿈) -> ? 로 바뀌면서 아래 문장이 연달아 출력
+# print("무엇이 더 재밌을까요?")
+
+# import sys   #sys 모듈 import
+# print("python", "Java", file= sys.stdout)
+# print("python", "Java", file= sys.stderr)  
+# # Visual studio에서는 출력 차이 없지만 실제로는 stdout 은 표준출력으로 나오고 stderr은 에러로 나옴
+# # stderr는 따로 logging해서 따로 확인하는 일을 함.
+
+# scores = {"수학":0,"영어":50, "코딩":100}
+# for subject, score in scores.items():    # key와 values를 쌍으로 하여 튜플 형태로 보여줌
+#     # print(subject, score)
+#     print(subject.ljust(8), str(score).rjust(4), sep=":")      # 과목은 8개 공간만들고 왼쪽 정렬, score는 정렬을 위해 문자로 만들어줘야함
+
+# # 은행 대기순번표
+# # 001, 002, 003....
+# for num in range(1,21):
+#     print("대기번호:"+ str(num).zfill(3))            # zfill : 3자리로 만들고 zero 를 fill하는 것
+
+
+# # 표준입출력 예시
+# answer = input("아무 값이나 입력하세요: ")
+# print("입력하신 값은 " + answer + "입니다")
+
+# print(type(answer))  
+# #사용자 input에 의해 입력되면 항상 문자 type
+
+# # 다양한 출력 포맷
+# # 빈 자리는 빈공간으로 두고, 오른쪽 정렬을 하되, 총 10자리 공간을 확보
+# print("{0: >10}".format(500))
+# print("{0: <10}".format(500))
+# # 양수일 때는, + 로 표시 / 음수일 땐 - 로 표시
+# print("{0: >+10}".format(+500))
+# print("{0: >+10}".format(-500))
+# # 왼쪽 정렬하고, 빈칸으로 _로 채움
+# print("{0:_<10}".format(500))
+# # 3자리 마다 콤마를 찍어주기
+# print("{0:,}".format(1000000000))
+# # 3자리 마다 콤마를 찍어주기,+_부호도 붙이기
+# print("{0:+,}".format(1000000000))
+# print("{0:+,}".format(-1000000000))
+# # 3자리 마다 콤마를 찍어주기, 부호도 붙이고, 30자릿 수 확보하기
+# # 돈이 많으면 행복하니까 빈자리는 ^로 채워주기
+# print("{0:^<+30,}".format(1000000000))
+
+# # 소수점 출력
+# print("{0:f}".format(5/3))
+# print("{0:.2f}".format(5/3))  #특정 자리수까지 .2f -> 2자리까지
+
+
+# # # 파일 입출력
+# # 파일을 열어서 점수 정보를 입력하는 것.
+
+# score_file = open("score.txt", "w", encoding = "utf8")  
+# # score.txt = 파일명 "w" = write 쓰기위한 목적으로 열기  utf8 한글 문자 오류 방지
+
+# print("수학 : 0 ", file=score_file)
+# print("영어 : 50 ", file=score_file)    # 이 내용을 파일에 작성  # 자동 줄바꿈됨
+# score_file.close()          # 파일을 열고나면 꼭 닫아줘야함
+
+# #좌측에 score.txt 파일이 생성되고 위의 정보가 입력되어 있음.
