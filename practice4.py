@@ -109,7 +109,7 @@
 # # pickle
 # # 프로그램 상 사용하는 데이터를 파일 형태로 저장 -> 전달하면 pickle을 데이터로 가져와서 사용 가능
 
-import pickle   # pickle 모듈 불러오기
+# import pickle   # pickle 모듈 불러오기
 # profile_file = open("profile.pickle", "wb")   # wb = 쓰기 binary /pickle 쓰려면 binary 해줘야함 # pickle은 encoding 설정 필요없음 
 # profile = {"이름" : "박명수", "나이" : 30, "취미" : ["축구","골프", "코딩"]}  # 사전 형태 {}
 # print(profile)
@@ -128,10 +128,10 @@ import pickle   # pickle 모듈 불러오기
 # # with
 # 파일 열고 닫기 편하게
 
-import pickle
+# import pickle
 
-with open("profile.pickle", "rb") as profile_file:     # 파일을 열고 profile_file 변수로 지정
-     print(pickle.load(profile_file))
+# with open("profile.pickle", "rb") as profile_file:     # 파일을 열고 profile_file 변수로 지정
+#      print(pickle.load(profile_file))
 
 # 파일을 닫지 않아도 됨.
 
@@ -139,5 +139,5 @@ with open("profile.pickle", "rb") as profile_file:     # 파일을 열고 profil
 # with open("study.txt", "w", encoding= "utf8") as study_file:
 #     study_file.write("파이썬을 열심히 공부하고 있어요")
 
-with open("study.txt","r", encoding= "utf8") as study_file:
-    print(study_file.read())
+# with open("study.txt","r", encoding= "utf8") as study_file:
+#     print(study_file.read())
