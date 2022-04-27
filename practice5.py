@@ -1,6 +1,15 @@
+# # < 클래스 (class) >
 
-# # < class >
+# 객체 : 여러 가지 속성을 가질 수 있는 대상
 # 마린 : 공격 유닛, 군인. 총을 쏠 수 있음
+# 인스턴스(Instance) : 클래스에서 만들어진 
+# 생성자(Constructor) : 클래스 이름과 같은 함수
+
+# # 규칙
+# Class 라고 알아보기 위해 캐멀 케이스(파스칼 케이스) 규칙 준수하기(각 단어의 첫글자 대문자로, 예: BeautifulSoup)
+# Class 내부의 함수에서 첫 매개변수는 반드시 'self' 입력, '자기자신'을 나타내는 딕셔너리라고 생각
+# self가 가지고 있는 속성과 기능에 접근할 때는 self.<식별자>
+
 name = "마린"   # 유닛의 이름
 hp = 40     #유닛의 체력
 damage = 5   #유닛의 공격력
@@ -35,7 +44,7 @@ attack(tank2_name, "1시", tank2_damage)
 # # 위 내용을 class로 해보기
 
 # 일반 유닛
-class Unit :
+class Unit :                        # 여기서 Unit과 같은 것을 '생성자(constructor)라고 부름
     def __init__(self, name, hp, damage) :    
         self.name = name
         self.hp = hp
@@ -55,8 +64,10 @@ tank = Unit("탱크",150,35)
 
 
 # # < 멤버 변수 >
-# self.name, self.hp 와 같은 것
+
 # class 내에서 정의된 변수
+# self.name, self.hp 와 같은 것
+
 
 # 레이스 : 공중 유닛, 비행기. 클로킹(상대방에게 보이지 않음)
 wraith1 = Unit("레이스", 80, 5)
@@ -76,7 +87,11 @@ if wraith2.clocking == True :
 # if wraith1.clocking == True :
 #     print("{0}는 현재 클로킹 상태입니다.".format(wraith1.name))  
 
+
 # < 메소드 >
+
+# 메소드 : 클래스가 가지고 있는 함수
+# C#, Java에서는 메소드라고 부르고 파이썬에서는 '멤버 함수' 혹은 '인스턴스 함수'
 # 공격 유닛을 나타내는 class 생성
 class AttackUnit :
     def __init__(self, name, hp, damage) :    
